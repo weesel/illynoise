@@ -2,23 +2,33 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Space Base - 2D Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Base MVP</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
-        <canvas id="gameCanvas"></canvas>
-        
-        <div id="dialog-box" class="hidden">
+    <div id="ui-layer">
+        <div id="status">Status: Online - Klicke zum Laufen</div>
+        <button onclick="addTerminal()">+ Neues Terminal (Blockly-Sim)</button>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="dialog-box" class="hidden">
+        <div id="avatar">🤖</div>
+        <div id="dialog-content">
             <p id="dialog-text"></p>
-            <input type="text" id="ai-input" class="hidden" placeholder="Frag den Agenten...">
+            <div id="ai-controls" class="hidden">
+                <input type="text" id="ai-input" placeholder="Frag den Agenten...">
+                <button onclick="sendToAI()">Senden</button>
+            </div>
         </div>
     </div>
 
     <div id="app-window" class="hidden">
         <div id="window-header">
-            <span id="window-title">Web App</span>
-            <button onclick="closeApp()">X</button>
+            <span id="window-title">App Terminal</span>
+            <button onclick="closeApp()">SCHLIESSEN [X]</button>
         </div>
         <iframe id="app-frame" src=""></iframe>
     </div>
